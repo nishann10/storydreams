@@ -113,7 +113,8 @@ def addbook(request):
           quantity1=request.POST.get('book_quantity')
           publisher1=request.POST.get('book_publisher')
           published_date1=request.POST.get('publisheddate')
-          book_obj=book.objects.create(name=name1,auther=auther1,price=price1,category=category1,quantity=quantity1,publisher=publisher1,published_date=published_date1)
+          image1=request.FILES.get('imagee')
+          book_obj=book.objects.create(name=name1,auther=auther1,price=price1,category=category1,quantity=quantity1,publisher=publisher1,published_date=published_date1,image=image1)
           book_obj.save()
           return redirect('bookdetails')
      else:

@@ -19,6 +19,7 @@ class book(models.Model):
     published_date=models.DateField()
     price=models.IntegerField(null=True)
     auther=models.CharField(max_length=100,null=True)
+    image=models.FileField(upload_to='image/',null=True)
     def __str__(self):
         return self.name
 class booking(models.Model):
