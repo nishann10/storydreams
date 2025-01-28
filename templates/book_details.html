@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button type="submit"><a href="{% url 'bookadd' %}">add book</a></button>
+    <table border="2">
+        <tr>
+            <th>book name</th>
+            <th>auther</th>
+            <th>category</th>
+            <th>price</th>
+            <th>quantity</th>
+            <th>publisher</th>
+            <th>published date</th>
+            <th colspan="2">action</th>
+        </tr>
+        {% for i in datas %}
+        <tr>
+            <td>{{i.name}}</td>
+            <td>{{i.auther}}</td>
+            <td>{{i.category}}</td>
+            <td>{{i.price}}</td>
+            <td>{{i.quantity}}</td>
+            <td>{{i.publisher}}</td>
+            <td>{{i.published_date}}</td>
+            <td><a href="{% url 'bookupdate' id=i.id %}">update</a></td>
+            <td><a href="{% url 'bookdelete' id=i.id %}">delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="image-section"><img src="{% static 'image1/temp1.jpg' %}" alt="tempeory"></div>
+        <div class="form-section">
+          <h2>Login</h2>
+          <form method="POST">
+          <input type="text" placeholder="Username" name="user_name" />
+          <input type="password" placeholder="Password" name="pass_word" />
+        </form>
+          <div>
+            <a href="#">Create new account</a>
+            <a href="#" style="float: right;">Forgot password</a>
+          </div>
+          <div class="or-divider">or</div>
+          <button class="button">LOG IN</button>
+        </div>
+      </div>
+    {% if data %}
+    {{data}}
+    {% endif %}
+</body>
+</html>

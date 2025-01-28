@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="2">
+        <tr>
+            <th>categories</th>
+            <th>action</th>
+            
+        </tr>
+        {% for i in datas %}
+        <tr>
+            <td>{{i.category_name}}</td>
+            <td><a href="{% url 'categorydlt' id=i.id %}">delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    <button type="submit"><a href="{% url 'categoryadd' %}">add category</a></button>
+</body>
+</html>

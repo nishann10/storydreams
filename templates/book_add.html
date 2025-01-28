@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="fname">book name:</label><br>
+        <input type="text" id="fname" name="book_name"><br>
+        <label for="fname">auther:</label><br>
+        <input type="text" id="fname" name="book_auther"><br>
+        <label for="fname">price:</label><br>
+        <input type="text" id="fname" name="book_price"><br>
+        <label for="id">category:</label>
+        <select name="book_category" id="">
+            <option value="" disabled selected>choose</option>
+            {% for i in datas %}
+            <option value="{{i.id}}">{{i.category_name}}</option>
+            {% endfor %}
+        </select><br>
+        <label for="fname">quantity</label><br>
+        <input type="text" id="fname" name="book_quantity"><br>
+        <label for="fname">publisher:</label><br>
+        <input type="text" id="fname" name="book_publisher"><br>
+        <label for="fname">published date:</label><br>
+        <input type="date" id="fname" name="publisheddate"><br>
+        <button type="submit">submit</button>
+        
+        
+    </form>
+</body>
+</html>

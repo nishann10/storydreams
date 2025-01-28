@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/temp1.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="image-section"><img src="{% static 'image1/temp1.jpg' %}" alt="tempeory"></div>
+        <div class="form-section">
+          <h2>Login</h2>
+          <form method="POST" action="{% url 'login' %}">
+            {% csrf_token %}
+          <input type="text" placeholder="Username" name="user_name"/>
+          <input type="password" placeholder="Password" name="pass_word"/>
+          
+          <div>
+            <a href="{% url 'register' %}">Create new account</a>
+            <a href="{% url 'password_reset' %}" style="float: right;">Forgot password</a>
+          </div>
+          <div class="or-divider">or</div>
+          <button class="button" style="width: 350px;">LOG IN</button>
+        </form>
+        </div>
+      </div>
+    {% if data %}
+    {{data}}
+    {% endif %}
+</body>
+</html>
