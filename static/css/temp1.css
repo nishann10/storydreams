@@ -1,93 +1,134 @@
+/* Basic reset and general styles */
 body {
     margin: 0;
+    font-family: 'Lato', sans-serif; /* Use your chosen font */
+    line-height: 1.6;
+    color: #333; /* Dark gray text color */
+}
+
+header {
+    background-color: #f0f0f0; /* Light gray background for header */
+    padding: 20px;
+}
+nav{
+    height: 10px;
+}
+
+nav ul, .secondary-nav ul {
+    list-style: none;
+    margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f4f4f4;
-  }
-  
-  /* Main Container */
-  .container {
+    justify-content: center; /* Center the main navigation */
+}
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
     display: flex;
-    width: 70%;
-    height: 60%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    background-color: white;
-    border-radius: 8px;
-    overflow: hidden;
-  }
-  
-  /* Image Section */
-  .image-section {
-    flex: 1;
-    background-image: url('temp1.jpg'); /* Replace with actual path */
-    background-size: cover;
-    background-position: center;
-  
-  }
-  img{
-    height: 350px;
-    width: 390px;
-  }
-  
-  /* Form Section */
-  .form-section {
-    flex: 1;
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  
-  .form-section h2 {
-    font-size: 1.8rem;
-    font-weight: bold;
-    margin-bottom: 20px;
-    color: #333;
-  }
-  
-  .form-section input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 1rem;
-  }
-  
-  .form-section a {
-    font-size: 0.9rem;
-    color: #007BFF;
+    justify-content: space-evenly; /* Center the main navigation */
+}    
+nav li, .secondary-nav li {
+    margin: 0 15px; /* Spacing between nav items */
+
+}
+.secondary-nav li {
+   font-size: xx-small;/* Spacing between nav items */
+   margin-left: 0px;
+
+   
+
+}
+
+nav a, .secondary-nav a {
     text-decoration: none;
-    margin-right: 10px;
-  }
-  
-  .form-section a:hover {
-    text-decoration: underline;
-  }
-  
-  .form-section .button {
-    background-color: #007BFF;
-    color: white;
-    border: none;
+    color: #007bff; /* Blue link color */
+}
+
+.secondary-nav {
+    background-color: #ddd; /* Slightly darker background for secondary nav */
+    padding: 0px;
+    text-align: left; /* Center the secondary nav items */
+    height: 10px;
+    margin-top: 100px;
+    width: 300px;
+    margin-top: 30px;
+    
+   
+}
+
+.secondary-nav a img {
+    vertical-align: middle; /* Align icon with text */
+    margin-right: 5px;
+    height: 15px;
+    width: 15px;
+}
+
+.hero {
+    background-color: #fff; /* White background for hero section */
+    padding: 50px 20px;
+    text-align: center; /* Center the hero content */
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.logo img {
+    max-width: 200px;
+}
+
+.search-box {
+    margin: 20px 0;
+}
+
+.search-box input {
     padding: 10px;
-    border-radius: 4px;
-    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 60%;
+}
+
+.search-box button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .form-section .button:hover {
-    background-color: #0056b3;
-  }
-  
-  .form-section .or-divider {
+}
+
+.tagline {
+    font-style: italic;
+    color: #777;
+    margin-top: 20px;
+}
+
+.featured-books {
+    padding: 30px 20px;
+    background-color: #f8f8f8; /* Very light gray for featured books */
+}
+
+.book-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center the book list */
+}
+
+.book-item {
+    margin: 10px;
+    /* Add styling for individual book items here */
+}
+
+.footer-image img {
+    width: 100%;
+    display: block; /* Prevents a small space below the image */
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
     text-align: center;
-    margin: 10px 0;
-    font-size: 0.9rem;
-    color: #666;
-  }
-  
+    padding: 10px;
+}

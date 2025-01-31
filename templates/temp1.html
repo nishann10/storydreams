@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Storydreams Bookstore</title>
+    <link rel="stylesheet" href="{% static 'css/temp1.css' %}"> 
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">NEW RELEASE</a></li>
+                <li><a href="#">BESTSELLERS</a></li>
+                <li><a href="#">BOOK REQUEST</a></li>
+                <li><a href="#">NEW OFFERS</a></li>
+            </ul>
+        </nav>
+        <div class="secondary-nav">
+            <ul>
+                <li><a href="#"> <img src="{% static 'image1/location.png' %}" alt="location icon"> STORE LOCATION</a></li>  <li><a href="#">ABOUT US</a></li>
+                <li><a href="#">CONTACT US</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <div class="logo">
+                    <img src="{% static 'image1/sd_logo.png' %}" alt="storydreams logo"> 
+                </div>
+                <div class="search-box">
+                    <input type="text" placeholder="search by bookname, auther,category">
+                    <button>Q</button> 
+                </div>
+                <div class="user-actions">
+                    <a href="#">login</a>
+                </div>
+            </div>
+            <p class="tagline">"Where Dreams Take Flight, One Story at a Time."</p>
+        </section>
+
+        <section class="featured-books">
+            <h2>Featured Books</h2>
+            <div class="book-list">
+                </div>
+        </section>
+
+        <section class="footer-image">
+            <img src="{% static 'image1/library.jpg' %}" alt="Library image">
+        </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2024 Storydreams Bookstore. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

@@ -19,15 +19,15 @@ class book(models.Model):
     published_date=models.DateField()
     price=models.IntegerField(null=True)
     auther=models.CharField(max_length=100,null=True)
-    image=models.FileField(upload_to='image/',null=True)
+    image=models.FileField()
     def __str__(self):
         return self.name
 class booking(models.Model):
     user_id=models.ForeignKey(CustomUser,on_delete=models.CASCADE)
     book_id=models.ForeignKey(book,on_delete=models.CASCADE)
     quantity=models.IntegerField()
-    status=models.CharField(max_length=100)
-    payment=models.CharField(max_length=100)
+    status=models.CharField(max_length=100,null=True,blank=True,default='pending')
+    payment=models.CharField(max_length=100,null=True,blank=True,default='pending')
     total_amount=models.IntegerField()
 
     

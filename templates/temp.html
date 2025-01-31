@@ -1,30 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    {% load static %}
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    {% load static %} 
+    <title>Online Bookstore</title>
+    <link rel="stylesheet" href="{% static 'css/temp.css' %}">
 </head>
 <body>
-    <div class="container">
-        <div class="image-section"><img src="{% static 'image1/temp1.jpg' %}" alt="tempeory"></div>
-        <div class="form-section">
-          <h2>Login</h2>
-          <form method="POST">
-          <input type="text" placeholder="Username" name="user_name" />
-          <input type="password" placeholder="Password" name="pass_word" />
-        </form>
-          <div>
-            <a href="#">Create new account</a>
-            <a href="#" style="float: right;">Forgot password</a>
-          </div>
-          <div class="or-divider">or</div>
-          <button class="button">LOG IN</button>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="logo.png" alt="Bookstore Logo"> 
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Search...">
+            </div>
+            <div class="nav-icons">
+                <img src="user-icon.png" alt="User">
+                <img src="cart-icon.png" alt="Cart">
+            </div>
         </div>
-      </div>
-    {% if data %}
-    {{data}}
-    {% endif %}
-</body>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to Our Bookstore</h1>
+            <p>Find your next favorite book.</p>
+        </div>
+    </section>
+
+    <section class="categories">
+        <div class="container">
+            <div class="category-item">
+                <img src="happy-icon.png" alt="Happy">
+                <span>Happy</span>
+            </div>
+            </div>
+    </section>
+
+    <section class="book-grid">
+        <div class="container">
+            <div class="book">
+                <img src="book1.jpg" alt="Book 1">
+                <h3>Book Title 1</h3>
+            </div>
+            </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Bookstore. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script> </body>
 </html>

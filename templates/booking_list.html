@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="2">
+    <tr>
+        <th>user name</th>
+        <th>book name</th>
+        <th>quantity</th>
+        <th>payment</th>
+        <th>total amount</th>
+        <th>status</th>
+
+    </tr>
+    {% for i in datas %}
+    <tr>
+        <td>{{i.user_id}}</td>
+        <td>{{i.book_id}}</td>
+        <td>{{i.quantity}}</td>
+        <td>{{i.payment}}</td>
+        <td>{{i.total_amount}}</td>
+        <td>
+            <form action="{% url 'statusing' id=i.id %}" method="post">
+                {% csrf_token %}
+            {% if i.status == 'pending' %}
+            <input type="submit" value="Accept" name="status">
+            <input type="submit" value="Reject" name="status" >
+            {% elif i.status == 'Accept' %}
+            <input type="submit" value="Reject" name="status">
+            {% elif i.status == 'Reject' %}
+            <input type="submit" value="Accept" name="status">
+            {% endif %}
+            </form>
+        </td>
+
+    </tr>
+    {% endfor %}
+    </table>
+</body>
+</html>

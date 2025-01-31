@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        
+        {% for i in datas %}
+        <div style="display: flex;justify-content: space-evenly;">
+
+            <div>{{i.book_id}}</div>
+            <div>{{i.quantity}}</div>
+            <div>{{i.total_amount}}</div>
+            <div>{{i.status}}</div>
+            <div>
+                {% if i.status == 'Accept' and i.payment == 'pending' %}
+                <form action="{% url 'stripe_payment' id=i.id %}" method="post">
+                    {% csrf_token %}
+                    <input type="submit" value="PAY">
+                </form>
+                {% elif i.status == 'Reject' %}
+                <span>Denained</span>
+                {% elif i.payment == 'Completed' %}
+                <span>Completed</span>
+                {% else %}
+                <span>pending</span>
+                {% endif %}
+            </div>            
+
+        </div>
+        {% endfor %}
+
+
+        <div class="pagination">
+            <span class="step-links">
+              {% if datas.has_previous %}
+                <a href="?page=1">&laquo; First</a>
+                <a href="?page={{ datas.previous_page_number }}">Previous</a>
+              {% endif %}
+              <span class="current">Page {{ datas.number }} of {{ datas.paginator.num_pages }}.</span>
+              {% if datas.has_next %}
+                <a href="?page={{ datas.next_page_number }}">Next</a>
+                <a href="?page={{ datas.paginator.num_pages }}">Last &raquo;</a>
+              {% endif %}
+            </span>
+        </div>
+</body>
+</html>

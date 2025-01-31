@@ -31,6 +31,11 @@ urlpatterns = [
     path('userhome',views.userhome,name='userhome'),
     path('userprofile',views.userprofile,name='userprofile'),
     path('update',views.userupdate,name='update'),
+    path('book_accept/<int:id>',views.book_accept,name='book_accept'),
+    path('stripe_payment/<int:id>',views.stripe_payment,name='stripe_payment'),
+    path('payment_status/<int:id>',views.payment_status,name='payment_status'),
+
+
 
 
     path('adminhome',views.adminhome,name='adminhome'),
@@ -38,6 +43,9 @@ urlpatterns = [
     path('categorydetail',views.categorydeatails,name='categorydetail'),
     path('categoryadd',views.categoryadd,name='categoryadd'),
     path('categorydlt/<int:id>', views.categorydelete,name='categorydlt'),
+    path('booking_list',views.booking_list,name='booking_list'),
+    path('statusing/<int:id>',views.statusing,name="statusing"),
+    path('booking_view',views.booking_view,name='booking_view'),
 
 
 
@@ -51,10 +59,13 @@ urlpatterns = [
     path('password_reset',views.Password_reset_request,name='password_reset'),
     path('verify_otp',views.Verify_otp,name='verify_otp'),
     path('set_new_password',views.Set_new_password,name='set_new_password'),
+    path('temp',views.temperory),
+    path('temp1',views.temp1),
+    path('temp2',views.temp2),
 
 
 ]
 if settings.DEBUG:
-    urlpatterns +=static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns +=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
     

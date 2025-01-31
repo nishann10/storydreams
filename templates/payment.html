@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Quantity</title>
+    <script>
+        // Function to calculate the total price based on quantity
+        function calculateTotal() {
+            var quantity = document.getElementById("quantity").value;
+            var price = parseFloat(document.getElementById("bookPrice").value);
+            var total = quantity * price;
+
+            // Update the total price on the page
+            document.getElementById("totalPrice").innerText = "Total: $" + total.toFixed(2);
+        }
+    </script>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3 col-sm-4">
+                <div class="card" style="width: 18rem;">
+                    <form action="{% url 'book_accept' %}" method="POST">
+                        {% csrf_token %}
+                        <img src="{{ datas.image.url }}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ datas.name }}</h5>
+                            <p class="card-text">{{ datas.auther }}</p>
+                            <input type="hidden" id="bookPrice" value="{{ datas.price }}"> <!-- Book price -->
+                            
+                            <label for="quantity">Quantity:</label>
+                            <input type="number" id="quantity" name="quantity" placeholder="Quantity" min="1" value="1" oninput="calculateTotal()">
+                            
+                            <!-- Display total price -->
+                            <p id="totalPrice">Total: ${{ datas.price }}</p>
+
+                            <input type="submit" value="Book">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

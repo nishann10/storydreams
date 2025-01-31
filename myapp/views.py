@@ -5,6 +5,7 @@ from django.contrib.auth import authenticate,login,logout
 from django.core.mail import send_mail
 from django.contrib import messages
 import random
+from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
 
 
 
@@ -68,9 +69,79 @@ def userupdate(request):
                 return redirect('userprofile')
     else:
         return render(request,"userprofile_update.html",{'data':user})
+def book_accept(request,id):
+    data=book.objects.get(id=id)
+    user_det = CustomUser.objects.get(id=request.user.id)
+    if request.method == 'POST':
+        quantity = int(request.POST.get('quantity'))
+        if(data.quantity>=quantity):
+            total_amount = data.price * quantity
+            booking_obj=booking()
+            booking_obj.user_id=user_det
+            booking_obj.book_id=data
+            booking_obj.quantity=quantity
+            booking_obj.total_amount=total_amount
+            booking_obj.save()
+            return redirect('book_accept')
+        else:
+            return render(request,'book_accept.html',{'datas':data,'error':"out of stock"})
+
+        
+
+    return render(request,'book_accept.html',{'datas':data})
+
+def booking_view(request):
+    data1=CustomUser.objects.get(id=request.user.id)
+    data2=booking.objects.filter(user_id=data1.id)
+    items_per_page=2
+    paginator=Paginator(data2,items_per_page)
+    page=request.GET.get('page',1)
+
+    try:
+        data2=paginator.page(page)
+    except PageNotAnInteger:
+        data2=paginator.page(1)
+    except EmptyPage:
+        data2=paginator.page(paginator.num_pages) 
+    context={
+        'datas':data2,
+    }
+    return render(request,"booking_view.html",context)
 
 
+import stripe
+from django.conf import settings 
 
+stripe.api_key = settings.STRIPE_SECRET_KEY
+
+def stripe_payment(request,id):
+    try:
+        data=booking.objects.get(id=id)
+        total_amount = data.total_amount
+            
+
+        intent = stripe.PaymentIntent.create(
+            amount=int(total_amount*100),
+            currency="usd",
+            metadata={"data":data,"user_id":request.user.id},
+
+        )
+        context = {
+            'client_secret': intent.client_secret,
+            'STRIPE_PUBLISHABLE_KEY': settings.STRIPE_PUBLISHABLE_KEY,
+            'total_amount':total_amount,
+            'data':data,
+        }
+        return render(request,'stripe_payments.html',context)
+        
+    except booking.DoesNotExist:
+        return redirect(userhome)
+    
+def payment_status(request,id):
+    data=booking.objects.get(id=id)
+    data.payment='Completed'
+    data.save()
+    return redirect(booking_view)
 
 
 
@@ -95,6 +166,19 @@ def categorydelete(request,id):
      data=category.objects.get(id=id)
      data.delete()
      return redirect('categorydetail')
+def booking_list(request):
+    data=booking.objects.all()
+    return render(request,"booking_list.html",{'datas':data})
+def statusing(request,id):
+     data=booking.objects.get(id=id)
+     if request.method == "POST":
+         status1=request.POST.get('status')
+         if status1=='Accept':
+            data.status="Accept"
+         elif status1=='Reject':
+             data.status="Reject"
+     data.save()
+     return redirect('booking_list')
 
 
 
@@ -113,7 +197,7 @@ def addbook(request):
           quantity1=request.POST.get('book_quantity')
           publisher1=request.POST.get('book_publisher')
           published_date1=request.POST.get('publisheddate')
-          image1=request.FILES.get('imagee')
+          image1=request.FILES['imagee']
           book_obj=book.objects.create(name=name1,auther=auther1,price=price1,category=category1,quantity=quantity1,publisher=publisher1,published_date=published_date1,image=image1)
           book_obj.save()
           return redirect('bookdetails')
@@ -200,8 +284,20 @@ def Set_new_password(request):
     return render(request,'new_password.html',{'email':email})
 
 
-# def temperory(request):
-#     return render(request,"temp.html")
+def temperory(request):
+    return render(request,"temp.html")
+
+def temp1(request):
+    return render(request,"temp1.html")
+def temp2(request):
+    return render(request,"temp2.html")
+
+
+
+
+
+
+
 
 
 # def users_bookview(request):

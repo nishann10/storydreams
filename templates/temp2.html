@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Storydreams Bookstore</title>
+    <link rel="stylesheet" href="{% static 'css/temp2.css' %}"> 
+    
+
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <img src="{% static 'image1/sd_logo.png' %}" alt="storydreams logo">  </div>
+                <ul class="main-nav">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">New Release</a></li>
+                    <li><a href="#">Bestsellers</a></li>
+                    <li><a href="#">Book Request</a></li>
+                    <li><a href="#">New Offers</a></li>
+                </ul>
+                <ul class="utility-nav">
+                    <li>
+                        <span class="location-icon">📍</span> 
+                        <a href="#">Store Location</a>
+                    </li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+                <div class="search-login">
+                    <form>
+                        <input type="text" placeholder="Search by bookname, author, category">
+                        <button type="submit">
+                            <img src="{% static 'image1/search_icon.jpg' %}" alt="search icon"> 
+                        </button>
+                    </form>
+                    <a href="#" class="login-btn">
+                        <img src="{% static 'image1/login_icon.jpg' %}" alt="login icon"> 
+                    </a>
+                </div>
+            </div>
+        </nav>
+        <div class="quote">
+            <p>"Where Dreams Take Flight, One Story at a Time."</p>
+        </div>
+    </header>
+
+    <script src="script.js"></script> </body>
+</html>

@@ -1,0 +1,78 @@
+/* Basic Reset and Box-sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif; /* Choose your font */
+}
+
+.container {
+    max-width: 960px; /* Adjust as needed */
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header */
+header {
+    background-color: #f0f0f0; /* Example background color */
+    padding: 10px 0;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Hero Section */
+.hero {
+    background-image: url("bookshelf.jpg"); /* Set your image path */
+    background-size: cover;
+    background-position: center;
+    height: 400px; /* Adjust as needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white; /* Text color */
+}
+
+/* Category Section */
+.categories {
+    padding: 20px 0;
+}
+
+.categories .container {
+    display: flex;
+    justify-content: space-around; /* Distribute categories evenly */
+}
+
+.category-item {
+    text-align: center;
+}
+
+/* Book Grid */
+.book-grid {
+    padding: 20px 0;
+}
+
+.book-grid .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid */
+    grid-gap: 20px;
+}
+
+.book img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Footer */
+footer {
+    background-color: #333; /* Example background color */
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}

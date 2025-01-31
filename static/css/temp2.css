@@ -1,0 +1,105 @@
+/* Basic Styling Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif; /* Use Poppins font */
+    line-height: 1.6;
+    color: #333; /* Dark gray text color */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header {
+    background-color: #f8f8f8; /* Light gray background */
+    padding: 20px 0;
+}
+
+nav {
+    border-bottom: 1px solid #ddd; /* Subtle border below navbar */
+    padding-bottom: 10px;
+}
+
+.logo img {
+    max-height: 50px; /* Adjust as needed */
+}
+
+.main-nav, .utility-nav {
+    list-style: none;
+    display: flex;
+}
+
+.main-nav li, .utility-nav li {
+    margin-left: 20px; /* Spacing between nav items */
+}
+
+.main-nav a, .utility-nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.main-nav a:hover, .utility-nav a:hover {
+    color: #007bff; /* Blue hover color */
+}
+
+.utility-nav .location-icon {
+    margin-right: 5px;
+}
+
+.search-login {
+    display: flex;
+    align-items: center;
+}
+
+.search-login form {
+    display: flex;
+}
+
+.search-login input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 250px; /* Adjust as needed */
+}
+
+.search-login button {
+    background: none;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.search-login button img {
+    width: 20px;
+    height: 20px;
+}
+
+.login-btn {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.login-btn img {
+    width: 30px;
+    height: 30px;
+}
+
+.quote {
+    text-align: center;
+    padding: 10px 0;
+    font-style: italic;
+    color: #666; /* Grayish color for quote */
+}
