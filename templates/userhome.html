@@ -17,8 +17,8 @@
             <!-- Loop through all books -->
             {% for i in datas %}
             <div class="col">
-                <div class="card">
-                    <img src="{{ i.image.url }}" class="card-img-top" alt="Book Image">
+                <div style="width: 300px;" class="card">
+                    <img style="height: 200px;width: 300px;" src="{{ i.image.url }}" class="card-img-top" alt="Book Image">
                     <div class="card-body">
                         <h5 class="card-title">{{ i.name }}</h5>
                         <p class="card-text">{{ i.auther }}</p>
