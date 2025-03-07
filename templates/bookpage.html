@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .card {
+            margin-top: 20px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex; /* Flexbox layout */
+            align-items: center;
+            padding: 20px;
+            
+        }
+
+        .card img {
+            width: 250px; /* Book image width */
+            height: auto;
+            margin-right: 20px; /* Space between image and details */
+        }
+
+        .card-details {
+            flex: 1; /* Take up the remaining space */
+            margin-top: -100px; 
+        }
+
+        .card-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 1%;
+        }
+
+        .card-text {
+            font-size: 16px;
+            color: #666;
+            margin-top: 30px;
+            
+        }
+</style>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3 col-sm-4">
+                <div class="card">
+                    <!-- Image on the left -->
+                    <img style="margin-left: 200px;height: 600px;width: 500px;box-shadow: 20px 20px 10px rgba(0, 0, 0, .5);;" src="{{datas.image.url}}" alt="book image">
+                    <div style="margin-left: 80px;"  class="card-details">
+                        <h5 style="font-size: 40px;" class="card-title">BOOK NAME :{{datas.name}}</h5>
+                        <p style="font-size: 30px;" class="card-text">BOOK AUTHER :{{datas.auther}}</p>
+                        <h5 style="font-size: 40px;margin-top: 20px;">${{datas.price}}RS <br><img style="height: 70px;width: 500px;margin-top: 20px;" src="{% static 'image1/fivestars.png' %}" alt="fivestars"></h5>
+            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

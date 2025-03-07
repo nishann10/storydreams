@@ -5,6 +5,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    /* Reset default margins and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Apply a background color to the page */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+/* Style the container for the content */
+h2 {
+    color: #333;
+    margin: 10px 0;
+    font-size: 1.2rem;
+}
+
+/* Style the button */
+button {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Style the button on hover */
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Style the link inside the button */
+button a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Add margin to make sure the button is spaced nicely */
+button + br {
+    margin-top: 15px;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+    h2 {
+        font-size: 1rem;
+    }
+    button {
+        width: 100%;
+        font-size: 1.2rem;
+    }
+}
+
+</style>
 <body>
     <h2>user name : {{data.username}}</data></h2><br>
     <h2>first name : {{data.first_name}}</data></h2><br>

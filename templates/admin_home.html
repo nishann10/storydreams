@@ -1,14 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    .main{
+        height: 630px;
+        width: 250px;
+        background-color: rgb(83, 80, 80);
+    }
+    .main img{
+        height: 80px;
+        width: 80px;
+        margin-left: 80px;
+        margin-top: 30px;
+    }
+    .main h4 {
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+    transition: all 0.3s ease; 
+    }
+
+    .main h4:hover {
+        background-color: rgb(100, 100, 100); 
+        color: white; 
+    }
+    .main a{
+        text-decoration: none;
+        color: inherit;
+    }
+</style>
 <body>
-   <button type="submit"><a href="{% url 'userdetail' %}">userdetails</a></button>
-   <button type="submit"><a href="{% url 'categorydetail' %}">categry details</a></button>
-   <button type="submit"><a href="{% url 'bookdetails' %}">book details</a></button>
-   <button type="submit"><a href="{% url 'booking_list' %}">booking list</a></button>
+    <div class="main"> 
+        <img src="{% static 'image1/storydreamicon.png' %}" alt="storydreamicon">
+        <a href="{% url 'adminhome' %}"><h4 style="margin-top: 50px;">HOME</h4></a>
+        <a href="{% url 'bookdetails' %}"><h4>BOOK MANAGEMNET</h4></a>
+        <a href="{% url 'categorydetail' %}"><h4>CATEGORY MANAGEMENT</h4></a>
+        <a href="{% url 'userdetail' %}"><h4>USER DETAILS</h4></a>
+        <a href="{% url 'booking_list' %}"><h4>PAYMENT DETAILS</h4></a>
+        
+    </div>
 </body>
 </html>

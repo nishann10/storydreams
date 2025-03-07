@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="container">
-        <div class="image-section"><img src="{% static 'image1/temp1.jpg' %}" alt="tempeory"></div>
+        <div class="image-section"><img style="height: 390px;width: 450px;" src="{% static 'image1/temp1.jpg' %}" alt="tempeory"></div>
         <div class="form-section">
           <h2>Login</h2>
           <form method="POST" action="{% url 'login' %}">
@@ -22,7 +22,7 @@
             <a href="{% url 'password_reset' %}" style="float: right;">Forgot password</a>
           </div>
           <div class="or-divider">or</div>
-          <button class="button" style="width: 350px;">LOG IN</button>
+          <button class="button" style="width: 350px;margin-left: 50px;">LOG IN</button>
         </form>
         </div>
       </div>

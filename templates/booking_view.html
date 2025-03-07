@@ -5,6 +5,108 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+  /* Reset default margins and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Apply a background color and font style to the page */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    padding: 20px;
+}
+
+/* Style for each data row */
+div {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Style for the book details (book_id, quantity, total_amount, status) */
+div > div {
+    flex: 1;
+    text-align: center;
+    font-size: 1rem;
+    color: #333;
+}
+
+/* Style for the PAY button form */
+form input[type="submit"] {
+    padding: 10px 15px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Style for the text in case of 'Reject', 'Completed', or 'pending' */
+span {
+    font-size: 1rem;
+    color: #333;
+}
+
+span:before {
+    content: " - ";
+}
+
+/* Style for pagination links */
+.pagination {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.pagination .step-links a {
+    margin: 0 5px;
+    text-decoration: none;
+    color: #007BFF;
+    font-size: 1rem;
+}
+
+.pagination .step-links a:hover {
+    text-decoration: underline;
+}
+
+.pagination .current {
+    font-size: 1rem;
+    color: #333;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    div {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    div > div {
+        width: 100%;
+        text-align: left;
+        padding: 5px 0;
+    }
+    form input[type="submit"] {
+        width: 100%;
+        font-size: 1.2rem;
+    }
+    .pagination {
+        margin-top: 15px;
+    }
+}
+
+</style>
 <body>
         
         {% for i in datas %}

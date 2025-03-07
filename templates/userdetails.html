@@ -1,28 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    .main{
+        height: 630px;
+        width: 250px;
+        background-color: rgb(83, 80, 80);
+    }
+    .main img{
+        height: 80px;
+        width: 80px;
+        margin-left: 80px;
+        margin-top: 30px;
+    }
+    .main h4 {
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+    transition: all 0.3s ease; 
+    }
+
+    .main h4:hover {
+        background-color: rgb(100, 100, 100); 
+        color: white; 
+    }
+    .main a{
+        text-decoration: none;
+        color: inherit;
+    }
+    .container{
+        display: flex;
+    }
+   
+
+    table {
+        border-collapse: separate; /* Change to separate to allow spacing between rows */
+        border-spacing: 0 10px; /* 20px is the space between rows, you can adjust it as needed */
+        width: 100%;
+        text-align: center;
+        border: none;
+        margin-left: 20px;
+        margin-top: 20px;
+    }
+
+    th, td {
+        background-color: #ccf1f1;
+        border: none; /* Remove column borders */
+        padding: 10px 20px; /* Add padding to create more space inside cells */
+    }
+
+    tr {
+        border-bottom: 1px solid white; /* Only apply a bottom border between rows */
+    }
+    .sub{
+        width: 100%;
+    }
+</style>
 <body>
+    <div class="container">
+    <div class="main"> 
+        <img src="{% static 'image1/storydreamicon.png' %}" alt="storydreamicon">
+        <a href="{% url 'adminhome' %}"><h4 style="margin-top: 50px;">HOME</h4></a>
+        <a href="{% url 'bookdetails' %}"><h4>BOOK MANAGEMNET</h4></a>
+        <a href="{% url 'categorydetail' %}"><h4>CATEGORY DETAILS</h4></a>
+        <a href="{% url 'userdetail' %}"><h4>USER DETAILS</h4></a>
+        <a href="{% url 'booking_list' %}"><h4>PAYMENT DETAILS</h4></a>        
+    </div>
+    <div class="sub">
     <table border="2">
         <tr>
-            <th>user name</th>
-            <th>password</th>
-            <th>first name</th>
-            <th>e-mail</th>
-            <th>phone number</th>
+            <th>USER NAME</th>
+            <th>FIRST NAME</th>
+            <th>E-MAIL</th>
+            <th>PHONE NUMBER</th>
+            <th colspan="2">ACTION</th>
         </tr>
         {% for i in datas %}
         <tr>
             <td>{{i.username}}</td>
-            <td>{{i.password}}</td>
             <td>{{i.first_name}}</td>
             <td>{{i.email}}</td>
             <td>{{i.phone_number}}</td>
+            <td><img style="height: 20px;width: 20px;" src="{% static 'image1/show.png' %}" alt="show"></td>
+            <td><img style="height: 20px;width: 20px;" src="{% static 'image1/desable.png' %}" alt="desable"></td>
+            
         </tr>
         {% endfor %}
     </table>
+    </div>
+    </div>
+    
 </body>
 </html>

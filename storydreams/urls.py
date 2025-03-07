@@ -22,7 +22,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',views.index),
+    path('',views.index,name='index'),
     path('register',views.userregister,name='register'),
     path('login',views.user_login,name='login'),
 
@@ -34,6 +34,8 @@ urlpatterns = [
     path('book_accept/<int:id>',views.book_accept,name='book_accept'),
     path('stripe_payment/<int:id>',views.stripe_payment,name='stripe_payment'),
     path('payment_status/<int:id>',views.payment_status,name='payment_status'),
+    path('catagorypage/<str:catagory>',views.catagorypage,name='catagorypage'),
+    
 
 
 
@@ -46,6 +48,8 @@ urlpatterns = [
     path('booking_list',views.booking_list,name='booking_list'),
     path('statusing/<int:id>',views.statusing,name="statusing"),
     path('booking_view',views.booking_view,name='booking_view'),
+    path('bookdlt/<int:id>',views.bookdelete,name='bookdlt'),
+    path('bookpage/<int:id>',views.bookpage,name='bookpage'),
 
 
 

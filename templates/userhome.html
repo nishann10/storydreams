@@ -5,29 +5,346 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Cards</title>
-    <!-- <link rel="stylesheet" href="{% static 'css/userhome.css' %}"> -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <style>
+        /* Navbar styles */
+        .navbar {
+            background-color: rgb(22, 85, 69);
+            padding: 20px 0;
+            height: auto;
+        }
+
+        .navbar-list {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .navbar-list a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 8px 40px;
+            transition: background-color 0.3s;
+            margin-left: 10px;
+        }
+
+        .navbar-list li {
+            display: inline;
+            margin: 0 30px;
+        }
+
+        .navbar-list a:hover {
+            background-color: #555;
+            border-radius: 5px;
+        }
+
+        /* Adjustments for mobile and smaller screens */
+        @media (max-width: 768px) {
+            .navbar-list li {
+                display: block;
+                margin: 10px 0;
+            }
+        }
+
+        /* Primary section styles */
+        .primary {
+            background-color: white;
+            height: 100px;
+            width: 100%;
+            padding: 20px 0;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            position: relative;
+            padding-bottom: 0;
+        }
+
+        .primary img {
+            height: 80px;
+            width: 80px;
+            margin-left: 80px;
+            margin-bottom: 20px;
+        }
+
+        .location {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            position: absolute;
+            top: 0;
+            left: 80px;
+            margin-left: 70px;
+            margin-top: 10px;
+            font-weight: bold;
+            
+            
+        }
+
+        .wheredream {
+            margin-top: 0;
+            background-color: rgb(22, 85, 69);
+            height: 40px;
+            color: white;
+            text-align: center;
+            padding: 1px;
+            
+        }
+        
+
+
+        /* Container and card layout */
+        .container {
+            width: 100%;
+            margin-left: 50px;
+          
+           
+            
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .col {
+            width: 23%;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            width: 70%;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            margin-bottom: 50px;
+            
+            
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card-img-top {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .card-text {
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            background-color: rgb(22, 85, 69);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #555;
+        }
+
+        button {
+            background-color: rgb(22, 85, 69);
+            border: none;
+            padding: 10px 20px;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+            margin: 10px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        a {
+            color: white;
+            text-decoration: none;
+        }
+        .footer{
+            height: 350px;
+            width: 100%;
+            margin-top: 70px;
+            display: flex;
+            justify-content: space-between;
+            background-color: rgb(22, 85, 69);
+            color: white;
+           
+        }
+        .footericons{
+            display: flex;
+            gap:30px;
+            margin-top: 30px;
+            
+        }
+        .footer1{
+            font-size: 20px;
+            margin-left: 50px;
+        }
+        .footer2{
+            font-size: 20px;
+        }
+        .footer3{
+            font-size: 20px;
+            margin-right: 50px;
+        }
+        .catagory{
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 100px;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+        .catagory1{
+            height: 100px;
+            width: 100px;  
+        }
+        .catagory2{
+            height: 100px;
+            width: 100px;  
+        }
+        .catagory3{
+            height: 100px;
+            width: 100px;  
+        }
+        .catagory4{
+            height: 100px;
+            width: 100px;  
+        }
+        .catagory5{
+            height: 100px;
+            width: 100px;  
+        }
+        
+        
+
+    </style>
 </head>
 <body>
-    <button type="submit"><a href="{% url 'userprofile' %}">view userprofile</a></button>
-    <button type="submit"><a href="{% url 'booking_view' %}">user profile</a></button>
+
+    <nav class="navbar">
+        <ul class="navbar-list">
+            <li><a href="#">HOME</a></li>
+            <li><a href="#">NEW RELEASE</a></li>
+            <li><a href="#">BEST SELLERS</a></li>
+            <li><a href="#">BOOK REQUEST</a></li>
+            <li><a href="#">NEW OFFERS</a></li>
+        </ul>
+    </nav>
+
+    <div class="primary">
+        <img src="{% static 'image1/storydreamicon.png' %}" alt="storydreamicon">
+        <div class="location">
+            <img style="height: 20px;width: 20px;" src="{% static 'image1/location.png' %}" alt="location">
+            <p style="font-size: 9px;margin-top: -3px;">STORY LOCATION  |  ABOUT US  |  CONTACT US</p>
+        </div>
+        <img style="margin-left: auto; margin-bottom: 10px;margin-right: 100px;" src="{% static 'image1/loogin.png' %}" alt="loogin">
+    </div>
+
+    <div class="wheredream">
+        <p>"where dream takes flight, one story at a time."</p>
+    </div>
+      <div class="mainimg">
+          <img style="height: 400px;width: 100%;margin-bottom: 50px;" src="{% static 'image1/main.jpg' %}" alt="main">
+      </div>
+      <div class="catagory">
+        
+           <div style="box-shadow: 10px 10px 10px rgba(0, 0, 0, .5);" class="catagory1">
+            <a href="{% url 'catagorypage' catagory='feel good' %}">
+                <img style="height: 80px;width: 80px;margin: auto;" src="{% static 'image1/feelgood.png' %}" alt="feelgood">
+            </a>
+                <p style="text-align: center;margin-top: 30px;">Feel good</p>   
+           </div>
+           <div style="box-shadow: 10px 10px 10px rgba(0, 0, 0, .5);" class="catagory2">
+            <a href="{% url 'catagorypage' catagory='thriller' %}">
+                <img style="height: 80px;width: 80px;margin: auto;" src="{% static 'image1/thriller.png' %}" alt="thriller">   
+            </a> 
+            <p style="text-align: center;margin-top: 30px;">Thriller</p>   
+           </div>
+           <div style="box-shadow: 10px 10px 10px rgba(0, 0, 0, .5);" class="catagory3">
+            <a href="{% url 'catagorypage' catagory='fiction' %}">
+                <img style="height: 80px;width: 80px;margin: auto;" src="{% static 'image1/fiction.png' %}" alt="fiction">
+            </a>
+                <p style="text-align: center;margin-top: 30px;">Fiction</p>
+           </div>
+           <div style="box-shadow: 10px 10px 10px rgba(0, 0, 0, .5);" class="catagory4">
+            <a href="{% url 'catagorypage' catagory='kids' %}">
+                <img style="height: 80px;width: 80px;margin: auto;" src="{% static 'image1/kids.png' %}" alt="kids">
+            </a>
+                <p style="text-align: center;margin-top: 30px;">Kids</p>
+           </div>
+           <div style="box-shadow: 10px 10px 10px rgba(0, 0, 0, .5);" class="catagory5">
+            <a href="{% url 'catagorypage' catagory='novel' %}">
+                <img style="height: 80px;width: 80px;margin: auto;" src="{% static 'image1/novel.png' %}" alt="novel">
+            </a>
+                <p style="text-align: center;margin-top: 30px;">Novel</p>
+           </div>
+      </div>
+    
+
     <div class="container">
         <div class="row">
             <!-- Loop through all books -->
             {% for i in datas %}
             <div class="col">
-                <div style="width: 300px;" class="card">
-                    <img style="height: 200px;width: 300px;" src="{{ i.image.url }}" class="card-img-top" alt="Book Image">
+                <div class="card">
+                    <img src="{{ i.image.url }}" class="card-img-top" alt="Book Image">
                     <div class="card-body">
                         <h5 class="card-title">{{ i.name }}</h5>
                         <p class="card-text">{{ i.auther }}</p>
-                        <a href="{% url 'book_accept' id=i.id %}" class="btn btn-primary">Go somewhere</a>
+                        <a href="{% url 'book_accept' id=i.id %}" class="btn">Go somewhere</a>
                     </div>
                 </div>
             </div>
             {% endfor %}
         </div>
     </div>
+    <button><a href="{% url 'userprofile' %}">view userprofile</a></button>
+    <button><a href="{% url 'booking_view' %}">user profile</a></button>
+
+    <div class="footer">
+        <div class="footer1">
+             <h6 style="font-size: 20px;">SIGHN UP FOR NEW UPDATES</h6>
+             <P>Submit your e-mail address to recieve story <br>dreams <br>pvt.lvy officers and updates.you can view <br>storydreams website</P>
+             <div class="footericons">
+                <img src="{% static 'image1/facebook.png' %}" alt="facebook">
+                <img src="{% static 'image1/instagram.png' %}" alt="instagram">
+                <img src="{% static 'image1/twitter.png' %}" alt="twitter">
+                <img src="{% static 'image1/youtube.png' %}" alt="youtube">
+             </div>
+        </div>
+        <div class="footer2">
+             <h6 style="font-size: 20px;">SHOPING GUIDE</h6>
+             <p>Store locator <br>return policy <br>payment&shipping</p>
+        </div>
+        <div class="footer3">
+             <h6 style="font-size: 20px;">INFORMATION</h6>
+             <p>About us <br>Blog <br>Carier <br>Contact us <br>Privacy Policy <br>Terms and conditions</p>
+        </div>
+    </div>
+
 </body>
 </html>

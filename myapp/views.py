@@ -10,7 +10,8 @@ from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
 
 
 def index(request):
-    return render(request,'index.html')
+    data=book.objects.all()
+    return render(request,'index.html',{'datas':data})
 
 
 
@@ -33,6 +34,7 @@ def userregister(request):
                                             email=e_mail1,
                                             phone_number=phone1)
         customuser_obj.save()
+        return redirect('index')
     return render(request,"user_register.html") 
 def user_login(request):
     if request.method == 'POST':
@@ -52,6 +54,19 @@ def user_login(request):
 
     else:
         return render(request,'user_login.html')
+    
+
+
+
+
+
+
+
+
+
+    
+
+
 def userhome(request):
     data=book.objects.all()
     return render(request,'userhome.html',{'datas':data})
@@ -69,6 +84,10 @@ def userupdate(request):
                 return redirect('userprofile')
     else:
         return render(request,"userprofile_update.html",{'data':user})
+def catagorypage(request,catagory):
+    catagory_obj=category.objects.get(category_name=catagory)
+    data=book.objects.filter(category=catagory_obj)
+    return render(request,"catagorypage.html",{'datas':data})
 def book_accept(request,id):
     data=book.objects.get(id=id)
     user_det = CustomUser.objects.get(id=request.user.id)
@@ -82,7 +101,7 @@ def book_accept(request,id):
             booking_obj.quantity=quantity
             booking_obj.total_amount=total_amount
             booking_obj.save()
-            return redirect('book_accept')
+            return redirect('book_accept',id=data.id)
         else:
             return render(request,'book_accept.html',{'datas':data,'error':"out of stock"})
 
@@ -146,6 +165,14 @@ def payment_status(request,id):
 
 
 
+
+
+
+
+
+
+
+
 def adminhome(request):
      return render(request,"admin_home.html")
 def userdetails(request):
@@ -179,14 +206,17 @@ def statusing(request,id):
              data.status="Reject"
      data.save()
      return redirect('booking_list')
-
-
-
 def bookdetails(request):
      data=book.objects.all()
      return render(request,"book_details.html",{'datas':data})
 
-
+def bookdelete(request,id):
+    data=book.objects.get(id=id)
+    data.delete()
+    redirect('bookdetails')
+def bookpage(request,id):
+    data=book.objects.get(id=id)
+    return render(request,"bookpage.html",{'datas':data})    
 def addbook(request):
      data = category.objects.all()
      if request.method == 'POST':
@@ -284,6 +314,7 @@ def Set_new_password(request):
     return render(request,'new_password.html',{'email':email})
 
 
+
 def temperory(request):
     return render(request,"temp.html")
 
@@ -291,6 +322,8 @@ def temp1(request):
     return render(request,"temp1.html")
 def temp2(request):
     return render(request,"temp2.html")
+
+
 
 
 
